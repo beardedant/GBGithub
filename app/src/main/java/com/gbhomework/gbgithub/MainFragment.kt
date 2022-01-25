@@ -25,6 +25,18 @@ class MainFragment:Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnRepositories.setOnClickListener {
+            requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, RepositoriesListFragment.newInstance())
+                .addToBackStack("")
+                .commit()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
