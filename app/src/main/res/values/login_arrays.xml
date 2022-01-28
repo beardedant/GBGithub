@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="login_name">
+        <item>Александр Сергеевич Тимофеев</item>
+        <item>Иван Васильевич Бунша</item>
+        <item>Ульяна Андреевна Бунша</item>
+        <item>Антон Семёнович Шпак</item>
+    </string-array>
+    <string-array name="login_mail">
+        <item>shurik@mail.net</item>
+        <item>i.bunsha@mail.net</item>
+        <item>y.bunsha@mail.net</item>
+        <item>shpak@mail.net</item>
+    </string-array>
+    <integer-array name="avatars">
+        <item>@drawable/avatar_i</item>
+    </integer-array>
+</resources>
