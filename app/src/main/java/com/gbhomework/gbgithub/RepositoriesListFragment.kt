@@ -30,9 +30,9 @@ class RepositoriesListFragment : Fragment() {
 
         //TODO написать нормальный RecyclerView, реализовать получение данных по схеме MVP или MVVM
         binding.repositoryCard.apply {
-            repositoryName.text = "тестовый репозиторий"
-            repositoryLanguage.text = "kotlin"
-            repositoryLastUpdate.text = "10 минут назад"
+            tvRepositoryName.text = "тестовый репозиторий"
+            tvRepositoryLanguage.text = "kotlin"
+            tvRepositoryLastUpdate.text = "10 минут назад"
         }
     }
 

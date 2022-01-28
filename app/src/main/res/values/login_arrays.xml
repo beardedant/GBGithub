@@ -15,4 +15,12 @@
     <integer-array name="avatars">
         <item>@drawable/avatar_i</item>
     </integer-array>
+
+    <string-array name="repo_test">
+        <item>Time Machine</item>
+        <item>fur coat for wife </item>
+        <item>stuff the walrus Yakina</item>
+        <item>save the king </item>
+    </string-array>
+
 </resources>
