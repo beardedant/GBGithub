@@ -23,6 +23,9 @@
 
     <integer-array name="avatars">
         <item>@drawable/avatar_i</item>
+        <item>@drawable/avatar_i</item>
+        <item>@drawable/avatar_i</item>
+        <item>@drawable/avatar_i</item>
     </integer-array>
 
     <string-array name="repo_test">

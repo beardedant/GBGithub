@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gbhomework.gbgithub.LoginListAdapter
-import com.gbhomework.gbgithub.R
+import com.gbhomework.gbgithub.data.MockUserDataImpl
 import com.gbhomework.gbgithub.databinding.FrafmentLoginListBinding
 
 class LoginListFragment : Fragment() {
@@ -29,11 +29,12 @@ class LoginListFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.setHasFixedSize(true)
 
-        val userLogin: Array<String> = resources.getStringArray(R.array.login_full_name)
-        val userMail: Array<String> = resources.getStringArray(R.array.login_mail)
+//TODO реализовать доступ через .App
+        val moc = MockUserDataImpl()
+        val user = moc.getDataForUser(context)
 
         val layoutManager = LinearLayoutManager(context)
-        val loginListAdapter = LoginListAdapter(userLogin, userMail)
+        val loginListAdapter = LoginListAdapter(user)
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = loginListAdapter

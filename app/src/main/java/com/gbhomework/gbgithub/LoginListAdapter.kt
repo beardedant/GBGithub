@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.gbhomework.gbgithub.domain.UserData
 
-//TODO сделать класс с данными о пользователе и пеоедавать его в конструктор
 //TODO навесить обработчик нажатий
+
 class LoginListAdapter(
-    private val userLoginName: Array<String>,
-    private val userMail: Array<String>
+    private val user: List<UserData>
 ) : RecyclerView.Adapter<LoginListAdapter.LoginListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoginListViewHolder {
@@ -21,17 +21,18 @@ class LoginListAdapter(
     }
 
     override fun onBindViewHolder(holder: LoginListViewHolder, position: Int) {
-        holder.login.text = userLoginName[position]
-        holder.mail.text = userMail[position]
+        holder.login.text = user[position].userName
+        holder.mail.text = user[position].userMail
+        holder.avatar.setImageResource(user[position].userAvatar)
     }
 
     override fun getItemCount(): Int {
-        return userLoginName.size
+        return user.size
     }
 
     inner class LoginListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val login = itemView.findViewById<TextView>(R.id.tv_login_name)
-        val mail = itemView.findViewById<TextView>(R.id.tv_login_mail)
-        val avatar = itemView.findViewById<ImageView>(R.id.iv_avatar_image)
+        val login: TextView = itemView.findViewById(R.id.tv_login_name)
+        val mail: TextView = itemView.findViewById(R.id.tv_login_mail)
+        val avatar: ImageView = itemView.findViewById(R.id.iv_avatar_image)
     }
 }
