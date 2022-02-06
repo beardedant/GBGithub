@@ -56,7 +56,7 @@ class LoginListFragment : Fragment(), LoginClickListener {
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container, RepositoriesListFragment.newInstance())
+            .replace(R.id.fragment_container, UserRepositoryFragment.newInstance())
             .addToBackStack("")
             .commit()
     }

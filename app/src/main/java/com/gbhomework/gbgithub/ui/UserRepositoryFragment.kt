@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gbhomework.gbgithub.R
 import com.gbhomework.gbgithub.RepositoriesListAdapter
-import com.gbhomework.gbgithub.databinding.FragmentUserinfoBinding
+import com.gbhomework.gbgithub.databinding.FragmentUserRepositoriesBinding
 
-class UserInfoFragment : Fragment() {
+class UserRepositoryFragment : Fragment() {
     companion object {
-        fun newInstance() = UserInfoFragment()
+        fun newInstance() = UserRepositoryFragment()
     }
 
-    private var _binding: FragmentUserinfoBinding? = null
+    private var _binding: FragmentUserRepositoriesBinding? = null
     private val binding
         get() = _binding!!
 
@@ -24,7 +24,7 @@ class UserInfoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentUserinfoBinding.inflate(layoutInflater)
+        _binding = FragmentUserRepositoriesBinding.inflate(layoutInflater)
 
         //TODO передать сюда данные пользователя
 
