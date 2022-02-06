@@ -7,15 +7,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/medium_pudding">
 
         <TextView
             android:id="@+id/tv_repository_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/small_padding"
-            android:text="Repository name"
-            android:textSize="@dimen/big_ext_size"
+            android:textSize="@dimen/medium_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,8 +24,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingEnd="@dimen/small_padding"
-            android:text="Kotlin"
-            android:textSize="@dimen/medium_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_repository_name" />
 
@@ -34,8 +32,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/small_padding"
-            android:text="Updated on 3 Oct 2021"
-            android:textSize="@dimen/medium_text_size"
             app:layout_constraintStart_toEndOf="@id/tv_repository_language"
             app:layout_constraintTop_toBottomOf="@+id/tv_repository_name" />
 

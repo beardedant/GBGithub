@@ -13,7 +13,7 @@ import com.gbhomework.gbgithub.domain.GetGitHubRepoUseCase
 
 class UserRepositoryFragment : Fragment() {
 
-    private val repository: GetGitHubRepoUseCase by lazy {requireActivity().app.mockGitHubRepoUseCase }
+    private val repository: GetGitHubRepoUseCase by lazy { requireActivity().app.gitHubRepoUseCase }
 
     companion object {
         fun newInstance() = UserRepositoryFragment()
@@ -35,13 +35,15 @@ class UserRepositoryFragment : Fragment() {
         val recyclerView = binding.repositoryRecyclerView
         recyclerView.setHasFixedSize(true)
 
-        val repoList = repository.getRepoForUser(context)
-
-        val layoutManager = LinearLayoutManager(context)
-        val loginListAdapter = RepositoriesListAdapter(repoList)
-
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = loginListAdapter
+        Thread {
+            val repoList = repository.getRepoForUser(context)
+            requireActivity().runOnUiThread {
+                val layoutManager = LinearLayoutManager(context)
+                val loginListAdapter = RepositoriesListAdapter(repoList)
+                recyclerView.layoutManager = layoutManager
+                recyclerView.adapter = loginListAdapter
+            }
+        }.start()
 
         return binding.root
     }
