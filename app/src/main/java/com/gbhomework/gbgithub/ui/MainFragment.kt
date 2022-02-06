@@ -1,10 +1,11 @@
-package com.gbhomework.gbgithub
+package com.gbhomework.gbgithub.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.gbhomework.gbgithub.R
 import com.gbhomework.gbgithub.databinding.FragmentMainBinding
 
 class MainFragment:Fragment() {

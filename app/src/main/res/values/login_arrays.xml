@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="login_name">
+    <string-array name="login_full_name">
         <item>Александр Сергеевич Тимофеев</item>
         <item>Иван Васильевич Бунша</item>
         <item>Ульяна Андреевна Бунша</item>
         <item>Антон Семёнович Шпак</item>
     </string-array>
+
     <string-array name="login_mail">
         <item>shurik@mail.net</item>
         <item>i.bunsha@mail.net</item>
         <item>y.bunsha@mail.net</item>
         <item>shpak@mail.net</item>
     </string-array>
+
+    <string-array name="login_alias">
+        <item>shurik</item>
+        <item>ibunsha</item>
+        <item>ybunsha</item>
+        <item>shpak</item>
+    </string-array>
+
     <integer-array name="avatars">
         <item>@drawable/avatar_i</item>
     </integer-array>
 
     <string-array name="repo_test">
         <item>Time Machine</item>
-        <item>fur coat for wife </item>
-        <item>stuff the walrus Yakina</item>
-        <item>save the king </item>
+        <item>Fur coat for wife</item>
+        <item>Punch Yakin in the face</item>
+        <item>Save the king</item>
     </string-array>
 
 </resources>

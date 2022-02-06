@@ -1,4 +1,4 @@
-package com.gbhomework.gbgithub
+package com.gbhomework.gbgithub.ui
 
 import android.content.Context
 import android.util.AttributeSet

@@ -1,4 +1,4 @@
-package com.gbhomework.gbgithub
+package com.gbhomework.gbgithub.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.gbhomework.gbgithub.R
+import com.gbhomework.gbgithub.RepositoriesListAdapter
 import com.gbhomework.gbgithub.databinding.FragmentUserinfoBinding
 
 class UserInfoFragment : Fragment() {
@@ -23,6 +25,8 @@ class UserInfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentUserinfoBinding.inflate(layoutInflater)
+
+        //TODO передать сюда данные пользователя
 
         val recyclerView = binding.repositoryRecyclerView
         recyclerView.setHasFixedSize(true)

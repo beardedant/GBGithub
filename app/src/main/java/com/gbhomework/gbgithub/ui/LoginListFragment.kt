@@ -1,12 +1,13 @@
-package com.gbhomework.gbgithub
+package com.gbhomework.gbgithub.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.gbhomework.gbgithub.LoginListAdapter
+import com.gbhomework.gbgithub.R
 import com.gbhomework.gbgithub.databinding.FrafmentLoginListBinding
 
 class LoginListFragment : Fragment() {
@@ -28,7 +29,7 @@ class LoginListFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.setHasFixedSize(true)
 
-        val userLogin: Array<String> = resources.getStringArray(R.array.login_name)
+        val userLogin: Array<String> = resources.getStringArray(R.array.login_full_name)
         val userMail: Array<String> = resources.getStringArray(R.array.login_mail)
 
         val layoutManager = LinearLayoutManager(context)

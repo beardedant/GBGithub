@@ -3,7 +3,6 @@ package com.gbhomework.gbgithub
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -29,8 +28,8 @@ class RepositoriesListAdapter(
     }
 
     inner class RepositoriesListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val name = itemView.findViewById<TextView>(R.id.tv_repository_name)
-        val language = itemView.findViewById<TextView>(R.id.tv_repository_language)
-        val lastUpdate = itemView.findViewById<TextView>(R.id.tv_repository_last_update)
+        val name: TextView = itemView.findViewById(R.id.tv_repository_name)
+        val language: TextView = itemView.findViewById(R.id.tv_repository_language)
+        val lastUpdate: TextView = itemView.findViewById(R.id.tv_repository_last_update)
     }
 }
