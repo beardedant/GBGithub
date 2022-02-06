@@ -5,11 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.gbhomework.gbgithub.domain.GitHubRepoData
 
-//TODO сделать класс с данными о репозиториях и пеоедавать его в конструктор
-//TODO навесить обработчик нажатий
 class RepositoriesListAdapter(
-    private val repositoriesCount: Array<String>
+    private val repositories: List<GitHubRepoData>
 ) : RecyclerView.Adapter<RepositoriesListAdapter.RepositoriesListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoriesListViewHolder {
@@ -20,11 +19,13 @@ class RepositoriesListAdapter(
     }
 
     override fun onBindViewHolder(holder: RepositoriesListViewHolder, position: Int) {
-        holder.name.text = repositoriesCount[position]
+        holder.name.text = repositories[position].full_name
+        holder.language.text = repositories[position].language
+        holder.lastUpdate.text = repositories[position].updated_at
     }
 
     override fun getItemCount(): Int {
-        return repositoriesCount.size
+        return repositories.size
     }
 
     inner class RepositoriesListViewHolder(view: View) : RecyclerView.ViewHolder(view) {

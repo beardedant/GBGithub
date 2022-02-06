@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gbhomework.gbgithub.R
 import com.gbhomework.gbgithub.RepositoriesListAdapter
+import com.gbhomework.gbgithub.data.MockGitHubRepoUseCaseImpl
 import com.gbhomework.gbgithub.databinding.FragmentUserRepositoriesBinding
 
 class UserRepositoryFragment : Fragment() {
@@ -31,12 +31,11 @@ class UserRepositoryFragment : Fragment() {
         val recyclerView = binding.repositoryRecyclerView
         recyclerView.setHasFixedSize(true)
 
-        val repoName: Array<String> = resources.getStringArray(R.array.repo_test)
-        val repoLanguage: Array<String> = resources.getStringArray(R.array.login_mail)
-        val repoLastUpdate: Array<String> = resources.getStringArray(R.array.login_mail)
+        val repository = MockGitHubRepoUseCaseImpl()
+        val repoList = repository.getRepoForUser(context)
 
         val layoutManager = LinearLayoutManager(context)
-        val loginListAdapter = RepositoriesListAdapter(repoName)
+        val loginListAdapter = RepositoriesListAdapter(repoList)
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = loginListAdapter

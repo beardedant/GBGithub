@@ -1,5 +1,7 @@
 package com.gbhomework.gbgithub.domain
 
+import android.content.Context
+
 interface GetGitHubRepoUseCase {
-    fun getRepoForUser(userAlias: String): List<GitHubRepoData>
+    fun getRepoForUser(context: Context?): List<GitHubRepoData>
 }

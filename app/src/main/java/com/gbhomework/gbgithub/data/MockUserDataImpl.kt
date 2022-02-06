@@ -12,9 +12,9 @@ class MockUserDataImpl : GetUsersData {
         val userList = mutableListOf<UserData>()
 
         val userFullName = context?.resources!!.getStringArray(R.array.login_full_name)
-        val userMail = context.resources!!.getStringArray(R.array.login_mail)
-        val useAlias = context.resources!!.getStringArray(R.array.login_alias)
-        val userAvatar = context.resources!!.obtainTypedArray(R.array.avatars)
+        val userMail = context.resources.getStringArray(R.array.login_mail)
+        val useAlias = context.resources.getStringArray(R.array.login_alias)
+        val userAvatar = context.resources.obtainTypedArray(R.array.avatars)
 
         for (i in 0..userFullName.lastIndex) {
             val user = UserData(
