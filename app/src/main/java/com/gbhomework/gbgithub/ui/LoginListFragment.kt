@@ -4,18 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gbhomework.gbgithub.LoginClickListener
 import com.gbhomework.gbgithub.LoginListAdapter
 import com.gbhomework.gbgithub.R
-import com.gbhomework.gbgithub.data.MockUserDataImpl
+import com.gbhomework.gbgithub.app
 import com.gbhomework.gbgithub.databinding.FrafmentLoginListBinding
+import com.gbhomework.gbgithub.domain.GetUsersData
 
 class LoginListFragment : Fragment(), LoginClickListener {
+
+    private val repo: GetUsersData by lazy { requireActivity().app.mockUserData }
+
     companion object {
         fun newInstance() = LoginListFragment()
+
     }
 
     private var _binding: FrafmentLoginListBinding? = null
@@ -32,12 +36,10 @@ class LoginListFragment : Fragment(), LoginClickListener {
         val recyclerView = binding.recyclerView
         recyclerView.setHasFixedSize(true)
 
-//TODO реализовать доступ через .App
-        val moc = MockUserDataImpl()
-        val user = moc.getDataForUser(context)
+        val users = repo.getDataForUser(context)
 
         val layoutManager = LinearLayoutManager(context)
-        val loginListAdapter = LoginListAdapter(user, this)
+        val loginListAdapter = LoginListAdapter(users, this)
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = loginListAdapter
@@ -52,7 +54,6 @@ class LoginListFragment : Fragment(), LoginClickListener {
     }
 
     override fun onLoginClick(view: View, position: Int) {
-        Toast.makeText(context, "$position", Toast.LENGTH_SHORT).show()
         requireActivity()
             .supportFragmentManager
             .beginTransaction()

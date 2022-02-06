@@ -7,10 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gbhomework.gbgithub.RepositoriesListAdapter
-import com.gbhomework.gbgithub.data.MockGitHubRepoUseCaseImpl
+import com.gbhomework.gbgithub.app
 import com.gbhomework.gbgithub.databinding.FragmentUserRepositoriesBinding
+import com.gbhomework.gbgithub.domain.GetGitHubRepoUseCase
 
 class UserRepositoryFragment : Fragment() {
+
+    private val repository: GetGitHubRepoUseCase by lazy {requireActivity().app.mockGitHubRepoUseCase }
+
     companion object {
         fun newInstance() = UserRepositoryFragment()
     }
@@ -31,7 +35,6 @@ class UserRepositoryFragment : Fragment() {
         val recyclerView = binding.repositoryRecyclerView
         recyclerView.setHasFixedSize(true)
 
-        val repository = MockGitHubRepoUseCaseImpl()
         val repoList = repository.getRepoForUser(context)
 
         val layoutManager = LinearLayoutManager(context)
