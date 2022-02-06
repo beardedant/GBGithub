@@ -8,10 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.gbhomework.gbgithub.domain.UserData
 
-//TODO навесить обработчик нажатий
-
 class LoginListAdapter(
-    private val user: List<UserData>
+    private val user: List<UserData>,
+    private val listener: LoginClickListener
 ) : RecyclerView.Adapter<LoginListAdapter.LoginListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoginListViewHolder {
@@ -34,5 +33,14 @@ class LoginListAdapter(
         val login: TextView = itemView.findViewById(R.id.tv_login_name)
         val mail: TextView = itemView.findViewById(R.id.tv_login_mail)
         val avatar: ImageView = itemView.findViewById(R.id.iv_avatar_image)
+
+        init {
+            login.setOnClickListener {
+                listener.onLoginClick(
+                    it,
+                    adapterPosition
+                )
+            }
+        }
     }
 }
