@@ -19,9 +19,9 @@ class RepositoriesListAdapter(
     }
 
     override fun onBindViewHolder(holder: RepositoriesListViewHolder, position: Int) {
-        holder.name.text = repositories[position].full_name
+        holder.name.text = repositories[position].fullName
         holder.language.text = repositories[position].language
-        holder.lastUpdate.text = repositories[position].updated_at
+        holder.lastUpdate.text = repositories[position].updatedAt
     }
 
     override fun getItemCount(): Int {

@@ -38,7 +38,8 @@ class LoginListAdapter(
             login.setOnClickListener {
                 listener.onLoginClick(
                     it,
-                    adapterPosition
+                    adapterPosition,
+                    user[adapterPosition]
                 )
             }
         }

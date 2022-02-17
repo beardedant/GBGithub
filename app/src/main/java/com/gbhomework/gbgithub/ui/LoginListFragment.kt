@@ -12,6 +12,7 @@ import com.gbhomework.gbgithub.R
 import com.gbhomework.gbgithub.app
 import com.gbhomework.gbgithub.databinding.FrafmentLoginListBinding
 import com.gbhomework.gbgithub.domain.GetUsersData
+import com.gbhomework.gbgithub.domain.UserData
 
 class LoginListFragment : Fragment(), LoginClickListener {
 
@@ -53,11 +54,11 @@ class LoginListFragment : Fragment(), LoginClickListener {
         _binding = null
     }
 
-    override fun onLoginClick(view: View, position: Int) {
+    override fun onLoginClick(view: View, position: Int, user: UserData) {
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container, UserRepositoryFragment.newInstance())
+            .replace(R.id.fragment_container, UserRepositoryFragment.newInstance(user))
             .addToBackStack("")
             .commit()
     }

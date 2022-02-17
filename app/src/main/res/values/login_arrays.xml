@@ -16,9 +16,9 @@
 
     <string-array name="login_alias">
         <item>shurik</item>
-        <item>ibunsha</item>
-        <item>ybunsha</item>
-        <item>shpak</item>
+        <item>android</item>
+        <item>square</item>
+        <item>beardedant</item>
     </string-array>
 
     <integer-array name="avatars">

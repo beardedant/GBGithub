@@ -1,6 +1,5 @@
 package com.gbhomework.gbgithub.data
 
-import android.content.Context
 import com.gbhomework.gbgithub.domain.GetGitHubRepoUseCase
 import com.gbhomework.gbgithub.domain.GitHubRepoData
 import com.google.gson.Gson
@@ -10,9 +9,9 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class WebGitHubRepoUseCaseImpl : GetGitHubRepoUseCase {
-    override fun getRepoForUser(context: Context?): List<GitHubRepoData> {
+    override fun getRepoForUser(userName: String): List<GitHubRepoData> {
 
-        val githubUrl = "https://api.github.com/users/beardedant/repos"
+        val githubUrl = "https://api.github.com/users/$userName/repos"
         val gson by lazy { Gson() }
         val result = mutableListOf<GitHubRepoData>()
 

@@ -10,13 +10,14 @@ import com.gbhomework.gbgithub.RepositoriesListAdapter
 import com.gbhomework.gbgithub.app
 import com.gbhomework.gbgithub.databinding.FragmentUserRepositoriesBinding
 import com.gbhomework.gbgithub.domain.GetGitHubRepoUseCase
+import com.gbhomework.gbgithub.domain.UserData
 
-class UserRepositoryFragment : Fragment() {
+class UserRepositoryFragment(val user: UserData) : Fragment() {
 
     private val repository: GetGitHubRepoUseCase by lazy { requireActivity().app.gitHubRepoUseCase }
 
     companion object {
-        fun newInstance() = UserRepositoryFragment()
+        fun newInstance(user: UserData) = UserRepositoryFragment(user)
     }
 
     private var _binding: FragmentUserRepositoriesBinding? = null
@@ -30,13 +31,13 @@ class UserRepositoryFragment : Fragment() {
     ): View {
         _binding = FragmentUserRepositoriesBinding.inflate(layoutInflater)
 
-        //TODO передать сюда данные пользователя
+        initUserCase()
 
         val recyclerView = binding.repositoryRecyclerView
         recyclerView.setHasFixedSize(true)
 
         Thread {
-            val repoList = repository.getRepoForUser(context)
+            val repoList = repository.getRepoForUser(user.userAlias)
             requireActivity().runOnUiThread {
                 val layoutManager = LinearLayoutManager(context)
                 val loginListAdapter = RepositoriesListAdapter(repoList)
@@ -46,6 +47,12 @@ class UserRepositoryFragment : Fragment() {
         }.start()
 
         return binding.root
+    }
+
+    private fun initUserCase() {
+        binding.include.tvLoginName.text = user.userName
+        binding.include.tvLoginMail.text = user.userMail
+        binding.include.ivAvatarImage.setImageResource(user.userAvatar)
     }
 
     override fun onDestroyView() {
