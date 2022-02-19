@@ -35,4 +35,12 @@ class WebGitHubRepoUseCaseImpl : GetGitHubRepoUseCase {
 
         return result
     }
+
+    override fun getRepoForUserAsync(
+        userName: String,
+        onSuccess: (List<GitHubRepoData>) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        TODO("Not yet implemented")
+    }
 }

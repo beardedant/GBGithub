@@ -21,4 +21,12 @@ class MockGitHubRepoUseCaseImpl : GetGitHubRepoUseCase {
 //        }
         return reposList
     }
+
+    override fun getRepoForUserAsync(
+        userName: String,
+        onSuccess: (List<GitHubRepoData>) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        TODO("Not yet implemented")
+    }
 }

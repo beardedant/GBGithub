@@ -5,19 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gbhomework.gbgithub.RepositoriesListAdapter
 import com.gbhomework.gbgithub.app
 import com.gbhomework.gbgithub.databinding.FragmentUserRepositoriesBinding
 import com.gbhomework.gbgithub.domain.GetGitHubRepoUseCase
+import com.gbhomework.gbgithub.domain.GitHubRepoData
 import com.gbhomework.gbgithub.domain.UserData
+import com.gbhomework.gbgithub.viewmodel.RepoListViewModel
 
-class UserRepositoryFragment(val user: UserData) : Fragment() {
+class UserRepositoryFragment() : Fragment() {
 
-    private val repository: GetGitHubRepoUseCase by lazy { requireActivity().app.gitHubRepoUseCase }
+    private lateinit var repoListViewModel: RepoListViewModel
 
     companion object {
-        fun newInstance(user: UserData) = UserRepositoryFragment(user)
+        fun newInstance() = UserRepositoryFragment()
     }
 
     private var _binding: FragmentUserRepositoriesBinding? = null
@@ -30,26 +35,33 @@ class UserRepositoryFragment(val user: UserData) : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentUserRepositoriesBinding.inflate(layoutInflater)
+        repoListViewModel = ViewModelProvider(requireActivity()).get(RepoListViewModel::class.java)
 
-        initUserCase()
+        repoListViewModel.getUserLiveData().observe(viewLifecycleOwner) {
+            initUserCase(it)
+        }
 
-        val recyclerView = binding.repositoryRecyclerView
-        recyclerView.setHasFixedSize(true)
+        repoListViewModel.getRepoListLiveData().observe(viewLifecycleOwner) {
+            initRecyclerView(it)
+        }
 
-        Thread {
-            val repoList = repository.getRepoForUser(user.userAlias)
-            requireActivity().runOnUiThread {
-                val layoutManager = LinearLayoutManager(context)
-                val loginListAdapter = RepositoriesListAdapter(repoList)
-                recyclerView.layoutManager = layoutManager
-                recyclerView.adapter = loginListAdapter
-            }
-        }.start()
+        repoListViewModel.getErrorLiveData().observe(viewLifecycleOwner) {
+            val error: String = it
+        }
 
         return binding.root
     }
 
-    private fun initUserCase() {
+    private fun initRecyclerView(it: List<GitHubRepoData>) {
+        val recyclerView = binding.repositoryRecyclerView
+        recyclerView.setHasFixedSize(true)
+        val layoutManager = LinearLayoutManager(context)
+        val loginListAdapter = RepositoriesListAdapter(it)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = loginListAdapter
+    }
+
+    private fun initUserCase(user: UserData) {
         binding.include.tvLoginName.text = user.userName
         binding.include.tvLoginMail.text = user.userMail
         binding.include.ivAvatarImage.setImageResource(user.userAvatar)

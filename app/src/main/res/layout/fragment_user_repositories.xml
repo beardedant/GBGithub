@@ -9,8 +9,8 @@
         layout="@layout/custom_login_card" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/repository_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/repository_recycler_view"/>
+        android:layout_height="wrap_content" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
