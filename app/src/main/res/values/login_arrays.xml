@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="login_full_name">
+        <item>Александр Сергеевич Тимофеев</item>
+        <item>Иван Васильевич Бунша</item>
+        <item>Ульяна Андреевна Бунша</item>
+        <item>Антон Семёнович Шпак</item>
+    </string-array>
+
+    <string-array name="login_mail">
+        <item>shurik@mail.net</item>
+        <item>i.bunsha@mail.net</item>
+        <item>y.bunsha@mail.net</item>
+        <item>shpak@mail.net</item>
+    </string-array>
+
+    <string-array name="login_alias">
+        <item>shurik</item>
+        <item>android</item>
+        <item>square</item>
+        <item>beardedant</item>
+    </string-array>
+
+    <integer-array name="avatars">
+        <item>@drawable/avatar_i</item>
+        <item>@drawable/avatar_i</item>
+        <item>@drawable/avatar_i</item>
+        <item>@drawable/avatar_i</item>
+    </integer-array>
+
+    <string-array name="repo_name">
+        <item>Time Machine</item>
+        <item>Fur coat for wife</item>
+        <item>Punch Yakin in the face</item>
+        <item>Save the king</item>
+    </string-array>
+    <string-array name="repo_language">
+        <item>Kotlin</item>
+        <item>Java</item>
+        <item>Judo</item>
+        <item>Kotlin</item>
+    </string-array>
+    <string-array name="repo_last_update">
+        <item>02.03.1724</item>
+        <item>08.05.2015</item>
+        <item>03.18.2017</item>
+        <item>12.01.2021</item>
+    </string-array>
+
+</resources>
