@@ -1,4 +1,4 @@
-package com.gbhomework.gbgithub
+package com.gbhomework.gbgithub.ui.login
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.gbhomework.gbgithub.R
 import com.gbhomework.gbgithub.domain.UserData
 
 class LoginListAdapter(
