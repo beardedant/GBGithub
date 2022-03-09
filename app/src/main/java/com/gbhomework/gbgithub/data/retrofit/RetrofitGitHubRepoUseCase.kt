@@ -1,4 +1,4 @@
-package com.gbhomework.gbgithub.data
+package com.gbhomework.gbgithub.data.retrofit
 
 import com.gbhomework.gbgithub.data.retrofit.GitHubApi
 import com.gbhomework.gbgithub.domain.GetGitHubRepoUseCase

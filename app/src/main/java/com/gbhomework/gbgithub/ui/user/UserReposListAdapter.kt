@@ -1,15 +1,16 @@
-package com.gbhomework.gbgithub
+package com.gbhomework.gbgithub.ui.user
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.gbhomework.gbgithub.R
 import com.gbhomework.gbgithub.domain.GitHubRepoData
 
-class RepositoriesListAdapter(
+class UserReposListAdapter(
     private val repositories: List<GitHubRepoData>
-) : RecyclerView.Adapter<RepositoriesListAdapter.RepositoriesListViewHolder>() {
+) : RecyclerView.Adapter<UserReposListAdapter.RepositoriesListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoriesListViewHolder {
         val view =

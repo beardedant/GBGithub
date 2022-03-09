@@ -3,6 +3,7 @@ package com.gbhomework.gbgithub.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.gbhomework.gbgithub.R
+import com.gbhomework.gbgithub.ui.login.LoginListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
